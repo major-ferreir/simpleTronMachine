@@ -26,18 +26,6 @@ package classes;
              System.out.println("Opção Inválida! \n");
              return;
             }
-            boolean memoria_cheia= true;
-            for(int i=0; i< mem.length; i++){
-              if (mem[i]==0){
-               memoria_cheia= false;
-               break;
-              }
-            }
-            
-            if(memoria_cheia){
-             System.out.println("Memória Cheia!");
-             return;
-            }
             //guarda o valor
          mem[posicao]= valor;
         }
