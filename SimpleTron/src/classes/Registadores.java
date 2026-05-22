@@ -10,5 +10,13 @@ package classes;
  * @author eferreir
  */
 public class Registadores {
-    
+    public int acumulador;
+    public int ic;
+    public int operacao;
+    public int operando;
+    public boolean emExecucao;
+    Registadores(){
+        acumulador = ic = operacao = operando = 0;
+        emExecucao = true;
+    }
 }

@@ -4,6 +4,7 @@
  */
 package simpletron;
 import java.util.Scanner;
+import classes.Computador;
 
 /**
  *
@@ -16,7 +17,9 @@ public class SimpleTron {
      */
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
+        Computador computador = new Computador();
         int opcao;
+        int[] programa = {1099, 1098, 2099, 3098, 2197, 1197};
         
         //      MENU ITERATIVO
         System.out.println("SIMPLETRON");
@@ -35,11 +38,11 @@ public class SimpleTron {
                     break ;
                 case 2:
                     System.out.println("Modo Executor");
+                    computador.executarPrograma(programa);
                     break ;
                 default:
                     System.out.println("Opcao inválida!");
             }
         }while(opcao != 0);
     }
-    
 }

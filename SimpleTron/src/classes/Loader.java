@@ -1,3 +1,5 @@
+package classes;
+
 public class Loader {
 
     public void carregarPrograma(int[] programa, Memoria mem) {
