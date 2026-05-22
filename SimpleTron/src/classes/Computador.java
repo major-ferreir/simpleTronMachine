@@ -1,11 +1,5 @@
 package classes;
 
-import static classes.SimpleTronInstrucoes.BRANCH;
-import static classes.SimpleTronInstrucoes.LOAD;
-import static classes.SimpleTronInstrucoes.READ;
-import static classes.SimpleTronInstrucoes.STORE;
-import static classes.SimpleTronInstrucoes.WRITE;
-
 import java.util.Scanner;
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -21,6 +15,7 @@ public class Computador {
     private Memoria memoria;
     private Registadores regs;
     private Loader loader;
+    private final Scanner scanner = new Scanner(System.in);
     
     public Computador(){
         memoria = new Memoria();
@@ -43,7 +38,6 @@ public class Computador {
         
         switch (instr){
             case READ:
-                Scanner scanner = new Scanner(System.in);
                 memoria.escrever(regs.operando, scanner.nextInt());
                 regs.ic++;
                 return true;
@@ -94,7 +88,6 @@ public class Computador {
                     regs.ic++;
                 return true;
             case HALT:
-                regs.ic = 0;
                 return false;
             default:
                 return false;
