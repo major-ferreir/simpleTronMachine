@@ -8,7 +8,7 @@ public class Loader {
 
             mem.escrever(i, programa[i]);
 
-            System.out.println(
+           System.out.println(
                 "Instrução carregada na posição "
                 + i +
                 ": " + programa[i]

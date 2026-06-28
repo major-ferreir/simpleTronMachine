@@ -132,8 +132,10 @@ public class Computador {
         }
     }
     
-    public void executarImediato(int instrucao, int p)
+    public void executarImediato(int instrucao)
     {
-        memoria.escrever(instrucao, p);
+      regs.operacao = instrucao / 100;
+      regs.operando = instrucao % 100;
+      executarInstrucao();
     }
 }
