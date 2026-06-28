@@ -118,13 +118,13 @@ public class Computador {
         }
     }
 
-    public void executarPrograma(int[] programa){
+    public void executarPrograma(int[] programa, String ficheiro){
         regs.acumulador = 0;
         regs.ic = 0;
         regs.operacao = 0;
         regs.operando = 0;
         regs.emExecucao =  true;
-        loader.carregarPrograma(programa, memoria);
+        loader.carregarFicheiro(ficheiro, memoria);
 
         while((regs.ic < 100) && (regs.emExecucao == true)) {
             buscaDescodificacao();

@@ -40,8 +40,8 @@ public class SimpleTron {
 					String ficheiro;
                     System.out.println("Digite o nome do ficheiro '.sml' que deseja executar");
 					System.out.print(": ");
-					ficheiro = scanner.nextLine();
-                    computador.executarPrograma(programa);
+					ficheiro = scanner.next();
+                    computador.executarPrograma(programa, ficheiro);
                     break ;
                 default:
                     System.out.println("Opcao inválida!");

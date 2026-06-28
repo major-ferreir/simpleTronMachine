@@ -1,5 +1,11 @@
 package classes;
 
+import java.util.ArrayList;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+
 public class Loader {
 
     public void carregarPrograma(int[] programa, Memoria mem) {
@@ -19,7 +25,7 @@ public class Loader {
     }
 
     public void carregarFicheiro(String caminho, Memoria mem) {
-        List<Integer> instrucoes = new ArrayList<>();
+        ArrayList<Integer> instrucoes = new ArrayList<>();
 
         try (BufferedReader leitor = new BufferedReader(new FileReader(caminho))) {
             String linha;
