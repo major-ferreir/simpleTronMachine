@@ -26,8 +26,8 @@ public class SimpleTron {
         do{
             System.out.println("Selecione uma opção:");
             System.out.println("0: Sair");
-            System.out.println("1: Modo compilador");
-            System.out.println("2: Modo executor");
+            System.out.println("1: Iterativo");
+            System.out.println("2: Modo de execução");
             System.out.print(": ");
             opcao = scanner.nextInt();
             switch (opcao) {
@@ -37,7 +37,10 @@ public class SimpleTron {
                     System.out.println("Modo Compilador");
                     break ;
                 case 2:
-                    System.out.println("Modo Executor");
+					String ficheiro;
+                    System.out.println("Digite o nome do ficheiro '.sml' que deseja executar");
+					System.out.print(": ");
+					ficheiro = scanner.nextLine();
                     computador.executarPrograma(programa);
                     break ;
                 default:
