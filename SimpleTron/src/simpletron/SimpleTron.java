@@ -30,7 +30,7 @@ public class SimpleTron {
         do{
             System.out.println("  ════════════ MENU ════════════");
             System.out.println("  0  Sair");
-            System.out.println("  1  Modo Iterativo (REPL)");
+            System.out.println("  1  Modo Iterativo");
             System.out.println("  2  Modo de Execucao");
             System.out.print("  > ");
             try {
