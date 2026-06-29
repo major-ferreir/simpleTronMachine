@@ -11,17 +11,15 @@ public class Loader {
     public void carregarPrograma(int[] programa, Memoria mem) {
 
         for (int i = 0; i < programa.length; i++) {
-
             mem.escrever(i, programa[i]);
-
-            System.out.println(
-                "Instrução carregada na posição "
-                + i +
-                ": " + programa[i]
-            );
+            String mnem = "";
+            int opCode = programa[i] / 100;
+            SimpleTronInstrucoes instr = SimpleTronInstrucoes.paraOpCode(opCode);
+            mnem = (instr != null) ? "  │  " + instr.toString() : "";
+            System.out.printf("  [%02d]  %04d%s%n", i, programa[i], mnem);
         }
 
-        System.out.println("\nPrograma carregado com sucesso!");
+        System.out.printf("\n  ✓ Programa carregado com sucesso!%n");
     }
 
     public void carregarFicheiro(String caminho, Memoria mem) {
@@ -75,7 +73,8 @@ public class Loader {
         // converter List<Integer> para int[]
         int[] programa = instrucoes.stream().mapToInt(Integer::intValue).toArray();
 
-        System.out.printf("Ficheiro \"%s\" lido com sucesso. A carregar %d instrução...%n%n", caminho, programa.length);
+        System.out.printf("  ✓ Ficheiro \"%s\" lido com sucesso (%d instrucoes)%n", caminho, programa.length);
+        System.out.printf("  ─ A carregar programa para a memoria...%n%n");
         carregarPrograma(programa, mem);
     }
 }

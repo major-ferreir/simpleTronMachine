@@ -5,6 +5,7 @@
 package simpletron;
 import java.util.Scanner;
 import classes.Computador;
+import classes.IterativeMode;
 
 /**
  *
@@ -18,33 +19,42 @@ public class SimpleTron {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         Computador computador = new Computador();
+        computador.setScanner(scanner);
         int opcao;
         int[] programa = {1099, 1098, 2099, 3098, 2197, 1197};
         
         //      MENU ITERATIVO
-        System.out.println("SIMPLETRON");
+        System.out.println("\n╔═══════════════════════════════════╗");
+        System.out.println("║         S I M P L E T R O N        ║");
+        System.out.println("╚═══════════════════════════════════╝");
         do{
-            System.out.println("Selecione uma opção:");
-            System.out.println("0: Sair");
-            System.out.println("1: Iterativo");
-            System.out.println("2: Modo de execução");
-            System.out.print(": ");
-            opcao = scanner.nextInt();
+            System.out.println("  ════════════ MENU ════════════");
+            System.out.println("  0  Sair");
+            System.out.println("  1  Modo Iterativo (REPL)");
+            System.out.println("  2  Modo de Execucao");
+            System.out.print("  > ");
+            try {
+                opcao = Integer.parseInt(scanner.nextLine());
+            } catch (NumberFormatException e) {
+                opcao = -1;
+            }
             switch (opcao) {
                 case 0:
                     return ;
                 case 1:
-                    System.out.println("Modo Compilador");
+                    {
+                        IterativeMode iterativo = new IterativeMode(scanner);
+                        iterativo.iniciar();
+                    }
                     break ;
                 case 2:
-					String ficheiro;
                     System.out.println("Digite o nome do ficheiro '.sml' que deseja executar");
-					System.out.print(": ");
-					ficheiro = scanner.next();
+                    System.out.print(": ");
+                    String ficheiro = scanner.nextLine();
                     computador.executarPrograma(programa, ficheiro);
                     break ;
                 default:
-                    System.out.println("Opcao inválida!");
+                    System.out.println("Opcao invalida!");
             }
         }while(opcao != 0);
     }
